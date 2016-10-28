@@ -10,6 +10,7 @@ node {
 
 stage 'unit-test'
 node {
+    sh 'cat ./node_modules/.bin/mocha'
     sh 'npm test'
 }
 
