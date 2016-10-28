@@ -1,8 +1,8 @@
 #!groovy
 
-env.PATH = "/usr/local/bin:${env.PATH}"
-
 node ("nodejs") {
+  env.PATH = "/usr/local/bin:${env.PATH}"
+  
   stage "checkout"
     checkout scm
 
