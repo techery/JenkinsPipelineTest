@@ -2,7 +2,8 @@
 
 stage 'npm install'
 node {
-    env.PATH = "/usr/local/bin:${env.PATH}"    
+    env.PATH = "/usr/local/bin:${env.PATH}"
+    checkout scm    
     sh 'npm install'
 }
 
