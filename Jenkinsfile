@@ -1,25 +1,16 @@
 #!groovy
 
+env.PATH = "/usr/local/bin:${env.PATH}"
+
 stage 'npm install'
 node {
-    env.PATH = "/usr/local/bin:${env.PATH}"
-    checkout scm    
+    checkout scm
     sh 'npm install'
-}
-
-stage 'build'
-node {
-    echo 'project build'
 }
 
 stage 'unit-test'
 node {
-    echo 'Hello from test'
-}
-
-stage 'smoke-test'
-node {
-    echo 'Hello from test'
+    sh 'npm test'
 }
 
 stage 'hockeyapp'
