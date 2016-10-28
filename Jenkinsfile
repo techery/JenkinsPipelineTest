@@ -2,7 +2,7 @@
 
 stage 'npm install'
 node {
-    echo env.PATH
+    env.PATH = "/usr/local/bin:${env.PATH}"    
     sh 'npm install'
 }
 
