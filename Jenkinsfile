@@ -1,8 +1,8 @@
 #!groovy
 
-stage 'cocoapods'
+stage 'npm install'
 node {
-    echo 'pod install'
+    npm install
 }
 
 stage 'build'
@@ -24,6 +24,3 @@ stage 'hockeyapp'
 node {
     echo 'Hello from test'
 }
-
-
-
