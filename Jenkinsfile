@@ -2,7 +2,7 @@
 
 stage 'npm install'
 node {
-    npm install
+    sh 'npm install'
 }
 
 stage 'build'
