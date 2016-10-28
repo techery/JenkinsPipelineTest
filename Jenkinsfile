@@ -2,6 +2,7 @@
 
 stage 'npm install'
 node {
+    echo env.PATH
     sh 'npm install'
 }
 
