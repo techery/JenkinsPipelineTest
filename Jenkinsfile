@@ -10,7 +10,7 @@ node {
 
 stage 'unit-test'
 node {
-    sh 'npm test'
+    sh './node_modules/.bin/mocha ./test/*'
 }
 
 stage 'hockeyapp'
