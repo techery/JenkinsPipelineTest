@@ -10,6 +10,15 @@ node ("nodejs") {
     sh 'npm install'
 
   stage 'unit-test'
-    sh './node_modules/.bin/jenkins-mocha ./test/*'
-    step([$class: 'JUnitResultArchiver', testResults: '**/artifacts/test/xunit.xml'])
+    try {
+      sh './node_modules/.bin/jenkins-mocha ./test/*'
+    } catch(error) {
+      step([$class: 'JUnitResultArchiver', testResults: '**/artifacts/test/xunit.xml'])
+      if (currentBuild.result == 'UNSTABLE') {
+        currentBuild.result = 'FAILURE'
+      }
+
+      throw error
+    }
+
 }
