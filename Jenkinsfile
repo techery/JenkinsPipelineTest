@@ -1,6 +1,7 @@
 #!groovy
 
 node ("nodejs") {
+  input 'Ready to go?'
   env.PATH = "/usr/local/bin:${env.PATH}"
 
   stage "checkout"
@@ -23,7 +24,6 @@ node ("nodejs") {
     }
 
   stage "publish"
-    input ‘hello world’
     archive (includes: 'src/**')
 
 }
