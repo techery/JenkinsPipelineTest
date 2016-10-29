@@ -23,6 +23,7 @@ node ("nodejs") {
     }
 
   stage "publish"
-     archive (includes: 'src/**')
+    input ‘hello world’
+    archive (includes: 'src/**')
 
 }
