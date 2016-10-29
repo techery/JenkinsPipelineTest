@@ -2,7 +2,7 @@
 
 node ("nodejs") {
   env.PATH = "/usr/local/bin:${env.PATH}"
-  
+
   stage "checkout"
     checkout scm
 
@@ -10,5 +10,5 @@ node ("nodejs") {
     sh 'npm install'
 
   stage 'unit-test'
-    sh './node_modules/.bin/mocha ./test/*'
+    sh './node_modules/.bin/jenkins-mocha ./test/*'
 }
