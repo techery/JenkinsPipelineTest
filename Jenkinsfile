@@ -21,4 +21,7 @@ node ("nodejs") {
       throw error
     }
 
+  stage "publish"
+    
+
 }
