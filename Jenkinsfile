@@ -13,11 +13,11 @@ node ("nodejs") {
     try {
       sh './node_modules/.bin/jenkins-mocha ./test/*'
     } catch(error) {
-      // if (currentBuild.result == 'UNSTABLE') {
-      //   currentBuild.result = 'FAILURE'
-      // }
-      //
-      // throw error
+      if (currentBuild.result == 'UNSTABLE') {
+        currentBuild.result = 'FAILURE'
+      }
+
+      throw error
     } finally {
       step([$class: 'JUnitResultArchiver', testResults: '**/artifacts/test/xunit.xml'])
     }
