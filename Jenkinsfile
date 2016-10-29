@@ -1,13 +1,13 @@
 #!groovy
 
 node ("nodejs") {
-  input 'Ready to go?'
   env.PATH = "/usr/local/bin:${env.PATH}"
 
   stage "checkout"
     checkout scm
 
   stage 'npm install'
+    input 'Ready to go?'
     sh 'npm install'
 
   stage 'unit-test'
