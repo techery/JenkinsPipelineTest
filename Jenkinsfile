@@ -19,7 +19,7 @@ node ("nodejs") {
 
       throw error
     } finally {
-      step([$class: 'JUnitResultArchiver', testResults: '**/artifacts/test/xunit.xml'])
+      junit allowEmptyResults: true, testResults: '**/artifacts/test/xunit.xml'
     }
 
   stage "publish"
