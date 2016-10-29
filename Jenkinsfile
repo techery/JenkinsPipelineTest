@@ -11,5 +11,5 @@ node ("nodejs") {
 
   stage 'unit-test'
     sh './node_modules/.bin/jenkins-mocha ./test/*'
-    step([$class: 'JUnitResultArchiver', testResults: './artifacts/test/*.xml'])
+    step([$class: 'JUnitResultArchiver', testResults: '**/artifacts/test/xunit.xml'])
 }
