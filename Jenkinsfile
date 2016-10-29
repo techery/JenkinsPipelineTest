@@ -22,6 +22,6 @@ node ("nodejs") {
     }
 
   stage "publish"
-     archive (includes: 'pkg/*.gem')
+     archive (includes: 'src/**')
 
 }
