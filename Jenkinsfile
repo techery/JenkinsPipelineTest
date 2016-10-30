@@ -7,7 +7,6 @@ node ("nodejs") {
     checkout scm
 
   stage 'npm install'
-    input 'Ready to go?'
     sh 'npm install'
 
   stage 'unit-test'
